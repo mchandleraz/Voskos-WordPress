@@ -1,0 +1,58 @@
+# OS or Editor folders
+.DS_Store
+.cache
+.project
+.settings
+nbproject
+thumbs.db
+
+ompiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+
+
+# Logs and databases #
+######################
+*.log
+*.asc
+*.xml
+*.bak
+
+web/.htaccess
+web/wp-*.php
+web/xmlrpc.php
+web/wp-admin/
+web/wp-includes/
+web/wp-content/uploads/
+web/wp-content/blogs.dir/
+web/wp-content/upgrade/*
+web/wp-content/backup-db/*
+web/wp-content/advanced-cache.php
+web/wp-content/wp-cache-config.php
+web/wp-content/cache/*
+web/wp-content/cache/supercache/*
+web/sitemap.xml
+web/sitemap.xml.gz
+web/readme.html
+web/license.txt
+web/aspnet_client
+web/web.config
+web/wp-content/themes/twentyten
+web/wp-content/themes/twentyeleven
+web/wp-content/themes/twentytwelve
+
+files/*.psd
+
+.buildpath
