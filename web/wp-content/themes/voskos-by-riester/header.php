@@ -1,3 +1,4 @@
+<?php if(function_exists( 'get_pjax_header' )) if(get_pjax_header()) return FALSE; ?>
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7" <?php language_attributes(); ?>> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie10 lt-ie9 lt-ie8" <?php language_attributes(); ?>> <![endif]-->

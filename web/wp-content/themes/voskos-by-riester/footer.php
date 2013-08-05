@@ -1,3 +1,4 @@
+<?php if(function_exists( 'get_pjax_footer' )) if(get_pjax_footer()) return FALSE; ?>
 	<?php frmwrk_footer_before(); ?>
 	<footer id="footer" role="contentinfo">
 
