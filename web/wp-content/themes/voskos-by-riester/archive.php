@@ -28,20 +28,10 @@
 					_e( 'Blog Archives', 'frmwrk' );
 				}
 			?></h1>
-			
+
 			<?php
-				echo '<ul class="filter">';
-				$args = array(
-					'taxonomy' => 'product_filter_option', // Registered tax name
-					'show_count' => true,
-					'hierarchical' => false,
-					'echo' => '0',
-				);	 
-				echo wp_list_categories($args);
-				echo '</ul>';
-			?>
-			
-			<?php
+
+			if ( is_post_type_archive( 'recipe' ) ) {
 				echo '<ul class="filter">';
 				$args = array(
 					'taxonomy' => 'recipe_filter_option', // Registered tax name
@@ -51,6 +41,20 @@
 				);	 
 				echo wp_list_categories($args);
 				echo '</ul>';
+			}
+
+			if ( is_post_type_archive( 'product' ) ) {
+				echo '<ul class="filter">';
+				$args = array(
+					'taxonomy' => 'product_filter_option', // Registered tax name
+					'show_count' => true,
+					'hierarchical' => false,
+					'echo' => '0',
+				);	 
+				echo wp_list_categories($args);
+				echo '</ul>';
+			}
+
 			?>
 
 			<?php

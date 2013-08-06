@@ -31,7 +31,7 @@ function riester_customPostTypes() {
 			'show_ui' => true,
 			'query_var' => true,
 			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */ 
-			'rewrite'	=> array( 'slug' => 'recipes' ), /* you can specify its url slug */
+			'rewrite'	=> array( 'slug' => 'recipe-details' ), /* you can specify its url slug */
 			'has_archive' => 'recipes', /* you can rename the slug here */
 			'capability_type' => 'post'
 		) /* end of options */
@@ -61,7 +61,7 @@ function riester_customPostTypes() {
 			'show_ui' => true,
 			'query_var' => true,
 			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */ 
-			'rewrite'	=> array( 'slug' => 'products' ), /* you can specify its url slug */
+			'rewrite'	=> array( 'slug' => 'product-details' ), /* you can specify its url slug */
 			'has_archive' => 'products', /* you can rename the slug here */
 			'capability_type' => 'post'
 		) /* end of options */
