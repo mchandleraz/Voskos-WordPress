@@ -68,11 +68,11 @@ function riester_customPostTypes() {
 	); /* end of products */
 	
 	/* this adds your post categories to your custom post type */
-	register_taxonomy_for_object_type('category', 'recipe');
-	register_taxonomy_for_object_type('category', 'product');
+	// register_taxonomy_for_object_type('category', 'recipe');
+	// register_taxonomy_for_object_type('category', 'product');
 	/* this adds your post tags to your custom post type */
-	register_taxonomy_for_object_type('post_tag', 'recipe');
-	register_taxonomy_for_object_type('post_tag', 'product');
+	// register_taxonomy_for_object_type('post_tag', 'recipe');
+	// register_taxonomy_for_object_type('post_tag', 'product');
 	
 } 
 
@@ -82,11 +82,11 @@ function riester_customPostTypes() {
 	/*
 	for more information on taxonomies, go here:
 	http://codex.wordpress.org/Function_Reference/register_taxonomy
-	*/  
-    
-	// Custom Tags
-    register_taxonomy( 'filter_option', 
-    	array('recipe', 'product'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+	*/ 
+
+	// Custom Tags for Recipes
+    register_taxonomy( 'recipe_filter_option',
+    	array('recipe'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
     	array('hierarchical' => false,    /* if this is false, it acts like tags */                
     		'labels' => array(
     			'name' => __( 'Filter Options'), /* name of the custom taxonomy */
@@ -103,6 +103,30 @@ function riester_customPostTypes() {
     		'show_admin_column' => true,
     		'show_ui' => true,
     		'query_var' => true,
+    		'rewrite' => array( 'slug' => 'recipes' )
+    	)
+    );
+
+	// Custom Tags for Recipes
+    register_taxonomy( 'product_filter_option', 
+    	array('product'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+    	array('hierarchical' => false,    /* if this is false, it acts like tags */                
+    		'labels' => array(
+    			'name' => __( 'Filter Options'), /* name of the custom taxonomy */
+    			'singular_name' => __( 'Filter Option'), /* single taxonomy name */
+    			'search_items' =>  __( 'Filter Options'), /* search title for taxomony */
+    			'all_items' => __( 'Filter Options'), /* all title for taxonomies */
+    			'parent_item' => __( 'Parent Filter Option'), /* parent title for taxonomy */
+    			'parent_item_colon' => __( 'Parent Filter Option:'), /* parent taxonomy title */
+    			'edit_item' => __( 'Edit Filter Option'), /* edit custom taxonomy title */
+    			'update_item' => __( 'Update Filter Option'), /* update title for taxonomy */
+    			'add_new_item' => __( 'Add New Filter Option'), /* add new title for taxonomy */
+    			'new_item_name' => __( 'New Filter Option Name') /* name title for taxonomy */
+    		),
+    		'show_admin_column' => true,
+    		'show_ui' => true,
+    		'query_var' => true,
+    		'rewrite' => array( 'slug' => 'products' )
     	)
     );
 
