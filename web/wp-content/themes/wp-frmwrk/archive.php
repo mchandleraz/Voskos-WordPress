@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
 	<section id="primary">
-		<?php frmwrk_content_before(); ?>
 		<div id="content" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -60,7 +59,6 @@
 		<?php endif; ?>
 
 		</div><!-- /#content -->
-		<?php frmwrk_content_after(); ?>
 	</section><!-- /#primary -->
 
 <?php get_sidebar(); ?>

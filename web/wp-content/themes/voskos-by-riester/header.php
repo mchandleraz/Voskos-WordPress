@@ -29,13 +29,9 @@
 	<div id="wrap" class="container" role="main">
 		<?php frmwrk_header_before(); ?>
 		<header id="header" role="banner">
-			<?php if ( ( is_home() ) || ( is_front_page() ) ) { ?>
-				<h1 id="site-title"><?php bloginfo( 'name' ); ?></h1>
-			<?php } else { ?>
-				<h1 id="site-title">
-					<a href="<?php echo home_url(); ?>/" title="<?php bloginfo('name'); ?> - Home"><?php bloginfo('name'); ?></a>
-				</h1>
-			<?php } ?>
+			<h1 id="site-title">
+				<a href="<?php echo home_url(); ?>/" title="<?php bloginfo('name'); ?> - Home"><?php bloginfo('name'); ?></a>
+			</h1>
 			
 			<?php frmwrk_header_inside(); ?>
 
