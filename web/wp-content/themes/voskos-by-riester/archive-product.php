@@ -17,35 +17,35 @@
 			 * type as a param.
 			 */
 
-			echo '<ul class="filter">';
-			$args = array(
-				'show_option_all'    => '', 						// No link to all categories
-				'orderby'            => 'name', 					// Sorts the list of Categories
-				'order'              => 'ASC', 						// In ascending order
-				'style'              => 'list', 					// As an unordered list
-				'show_count'         => true,						// Show post count
-				'hide_empty'         => 1,							// Hide empty
-				'use_desc_for_title' => 1,							// Sets HTML Title attribute to tag description
-				'child_of'           => 0,							// Is not restricted to child of tag (Use this to break-out filters)
-				'feed'               => '',							// Display link to tags RSS?
-				'feed_type'          => '',							// wat?
-				'feed_image'         => '',							// RSS feed icon URI
-				'exclude'            => '',							// Excludes tags by id
-				'exclude_tree'       => '',							// Exclude tree. This could maybe be used in place/addition to child_of
-				'include'            => '',							// Opposite of exclude
-				'hierarchical'       => false,						// true to mimic cats, false for tags. 
-				'title_li'           => __( 'Filters' ),			// Title of list
-				'show_option_none'   => __('No filter options'),	// Text to show if no tags available
-				'number'             => null,						// Number of tags to display. Sets SQL_LIMIT
-				'echo'               => 0,							// Echo or not?
-				'depth'              => 0,							// Irrellevnt because hierarchal is false
-				'current_category'   => 0,							// Toggle forced current cat highlighting
-				'pad_counts'         => 0,							// Include children when calculating 'number'
-				'taxonomy'           => 'product_filter_option', 	// Registered tax name
-				'walker'             => null,						// Walker class to use
-			);	 
-			echo wp_list_categories($args);
-			echo '</ul>';
+				echo '<ul class="filter">';
+				$args = array(
+					'show_option_all'    => '', 						// No link to all categories
+					'orderby'            => 'name', 					// Sorts the list of Categories
+					'order'              => 'ASC', 						// In ascending order
+					'style'              => 'list', 					// As an unordered list
+					'show_count'         => true,						// Show post count
+					'hide_empty'         => 1,							// Hide empty
+					'use_desc_for_title' => 1,							// Sets HTML Title attribute to tag description
+					'child_of'           => 0,							// Is not restricted to child of tag (Use this to break-out filters)
+					'feed'               => '',							// Display link to tags RSS?
+					'feed_type'          => '',							// wat?
+					'feed_image'         => '',							// RSS feed icon URI
+					'exclude'            => '',							// Excludes tags by id
+					'exclude_tree'       => '',							// Exclude tree. This could maybe be used in place/addition to child_of
+					'include'            => '',							// Opposite of exclude
+					'hierarchical'       => false,						// true to mimic cats, false for tags. 
+					'title_li'           => __( 'Filters' ),			// Title of list
+					'show_option_none'   => __('No filter options'),	// Text to show if no tags available
+					'number'             => null,						// Number of tags to display. Sets SQL_LIMIT
+					'echo'               => 0,							// Echo or not?
+					'depth'              => 0,							// Irrellevnt because hierarchal is false
+					'current_category'   => 0,							// Toggle forced current cat highlighting
+					'pad_counts'         => 0,							// Include children when calculating 'number'
+					'taxonomy'           => 'product_filter_option', 	// Registered tax name
+					'walker'             => null,						// Walker class to use
+				);	 
+				echo wp_list_categories($args);
+				echo '</ul>';
 
 			?>
 

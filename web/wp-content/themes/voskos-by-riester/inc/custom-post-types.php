@@ -31,8 +31,8 @@ function riester_customPostTypes() {
 			'show_ui' => true,
 			'query_var' => true,
 			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */ 
-			'rewrite'	=> array( 'slug' => 'recipe-details' ), /* you can specify its url slug */
-			'has_archive' => 'recipes', /* you can rename the slug here */
+			'rewrite'	=> array( 'slug' => 'recipe-details' ), /* This is the URL for the post type */
+			'has_archive' => 'recipes', /* archive slug */
 			'capability_type' => 'post'
 		) /* end of options */
 	); /* end of recipes */
@@ -61,8 +61,8 @@ function riester_customPostTypes() {
 			'show_ui' => true,
 			'query_var' => true,
 			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */ 
-			'rewrite'	=> array( 'slug' => 'product-details' ), /* you can specify its url slug */
-			'has_archive' => 'products', /* you can rename the slug here */
+			'rewrite'	=> array( 'slug' => 'product-details' ), /* This is the URL for the post type */
+			'has_archive' => 'products', /* URL for the archives */
 			'capability_type' => 'post'
 		) /* end of options */
 	); /* end of products */
