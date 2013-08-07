@@ -163,57 +163,31 @@ function custom_taxonomies_init() {
 	// 	) 
 	// );
 
-	$product_type_labels = array(
-		'name' => _x( 'Product Type', 'taxonomy general name' ),
-		'singular_name' => _x( 'Product Type', 'taxonomy singular name' ),
-		'search_items' =>  __( 'Search Types' ),
-		'all_items' => __( 'All Types' ),
-		'parent_item' => __( 'Parent Product Type' ),
-		'parent_item_colon' => __( 'Parent Product Type:' ),
-		'edit_item' => __( 'Edit Product Type' ), 
-		'update_item' => __( 'Update Product Type' ),
-		'add_new_item' => __( 'Add New Product Type' ),
-		'new_item_name' => __( 'New Product Type' ),
-		'menu_name' => __( 'Product Type' ),
-	);
+	// $product_type_labels = array(
+	// 	'name' => _x( 'Product Type', 'taxonomy general name' ),
+	// 	'singular_name' => _x( 'Product Type', 'taxonomy singular name' ),
+	// 	'search_items' =>  __( 'Search Types' ),
+	// 	'all_items' => __( 'All Types' ),
+	// 	'parent_item' => __( 'Parent Product Type' ),
+	// 	'parent_item_colon' => __( 'Parent Product Type:' ),
+	// 	'edit_item' => __( 'Edit Product Type' ), 
+	// 	'update_item' => __( 'Update Product Type' ),
+	// 	'add_new_item' => __( 'Add New Product Type' ),
+	// 	'new_item_name' => __( 'New Product Type' ),
+	// 	'menu_name' => __( 'Product Type' ),
+	// );
 
-	register_taxonomy('product-type',
-		array(0 => 'recipe'),
-		array( 
-			'hierarchical' => true, 
-			'labels' => $product_type_labels,
-			'show_ui' => true,
-			'show_admin_column' => true,
-			'query_var' => true,
-			'rewrite' => array('slug' => 'mexican-recipes/product-type', 'with_front' => false),
-		) 
-	);
-
-	$main_ingredient_labels = array(
-		'name' => _x( 'Main Ingredient', 'taxonomy general name' ),
-		'singular_name' => _x( 'Main Ingredient', 'taxonomy singular name' ),
-		'search_items' =>  __( 'Search Ingredients' ),
-		'all_items' => __( 'All Ingredients' ),
-		'parent_item' => __( 'Parent Ingredient' ),
-		'parent_item_colon' => __( 'Parent Ingredient:' ),
-		'edit_item' => __( 'Edit Ingredient' ), 
-		'update_item' => __( 'Update Main Ingredient' ),
-		'add_new_item' => __( 'Add New Main Ingredient' ),
-		'new_item_name' => __( 'New Main Ingredient' ),
-		'menu_name' => __( 'Main Ingredient' ),
-	);
-
-	register_taxonomy('main-ingredient',
-		array(0 => 'recipe'),
-		array( 
-			'hierarchical' => true, 
-			'labels' => $main_ingredient_labels,
-			'show_ui' => true,
-			'show_admin_column' => true,
-			'query_var' => true,
-			'rewrite' => array('slug' => 'mexican-recipes/main-ingredient', 'with_front' => false),
-		) 
-	);
+	// register_taxonomy('product-type',
+	// 	array(0 => 'recipe'),
+	// 	array( 
+	// 		'hierarchical' => true, 
+	// 		'labels' => $product_type_labels,
+	// 		'show_ui' => true,
+	// 		'show_admin_column' => true,
+	// 		'query_var' => true,
+	// 		'rewrite' => array('slug' => 'mexican-recipes/product-type', 'with_front' => false),
+	// 	) 
+	// );
 
 	$course_labels = array(
 		'name' => _x( 'Course', 'taxonomy general name' ),
@@ -226,7 +200,7 @@ function custom_taxonomies_init() {
 		'update_item' => __( 'Update Course' ),
 		'add_new_item' => __( 'Add New Course' ),
 		'new_item_name' => __( 'New Course' ),
-		'menu_name' => __( 'Meal/Course' ),
+		'menu_name' => __( 'Course' ),
 	);
 
 	register_taxonomy('course',
@@ -237,7 +211,7 @@ function custom_taxonomies_init() {
 			'show_ui' => true,
 			'show_admin_column' => true,
 			'query_var' => true,
-			'rewrite' => array('slug' => 'mexican-recipes/course', 'with_front' => false),
+			'rewrite' => array('slug' => 'recipes/course', 'with_front' => false),
 		) 
 	);
 
@@ -252,7 +226,7 @@ function custom_taxonomies_init() {
 		'update_item' => __( 'Update Occasion' ),
 		'add_new_item' => __( 'Add New Occasion' ),
 		'new_item_name' => __( 'New Occasion' ),
-		'menu_name' => __( 'Holiday/Occasion' ),
+		'menu_name' => __( 'Occasion' ),
 	);
 
 	register_taxonomy('occasion',
@@ -263,33 +237,59 @@ function custom_taxonomies_init() {
 			'show_ui' => true,
 			'show_admin_column' => true,
 			'query_var' => true,
-			'rewrite' => array('slug' => 'mexican-recipes/occasion', 'with_front' => false),
+			'rewrite' => array('slug' => 'recipes/occasion', 'with_front' => false),
 		) 
 	);
 
-	$reigion_labels = array(
-		'name' => _x( 'Regions', 'taxonomy general name' ),
-		'singular_name' => _x( 'Region', 'taxonomy singular name' ),
-		'search_items' =>  __( 'Search Regions' ),
-		'all_items' => __( 'All Regions' ),
-		'parent_item' => __( 'Parent Region' ),
-		'parent_item_colon' => __( 'Parent Region:' ),
-		'edit_item' => __( 'Edit Region' ), 
-		'update_item' => __( 'Update Region' ),
-		'add_new_item' => __( 'Add New Region' ),
-		'new_item_name' => __( 'New Region' ),
-		'menu_name' => __( 'Region' ),
+	$considerations_labels = array(
+		'name' => _x( 'Dietary Considerations', 'taxonomy general name' ),
+		'singular_name' => _x( 'Dietary Consideration', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Search Dietary Considerations' ),
+		'all_items' => __( 'All Dietary Considerations' ),
+		'parent_item' => __( 'Parent Dietary Considerations' ),
+		'parent_item_colon' => __( 'Parent Dietary Consideration:' ),
+		'edit_item' => __( 'Edit Dietary Consideration' ), 
+		'update_item' => __( 'Update Dietary Consideration' ),
+		'add_new_item' => __( 'Add New Dietary Consideration' ),
+		'new_item_name' => __( 'New Dietary Consideration' ),
+		'menu_name' => __( 'Dietary Considerations' ),
 	);
 
-	register_taxonomy('region',
+	register_taxonomy('dietary-considerations',
 		array(0 => 'recipe'),
 		array( 
 			'hierarchical' => true, 
-			'labels' => $reigion_labels,
+			'labels' => $considerations_labels,
 			'show_ui' => true,
 			'show_admin_column' => true,
 			'query_var' => true,
-			'rewrite' => array('slug' => 'mexican-recipes/region', 'with_front' => false),
+			'rewrite' => array('slug' => 'recipes/dietary-considerations', 'with_front' => false),
+		) 
+	);
+
+	$convenience_labels = array(
+		'name' => _x( 'Convenience Levels', 'taxonomy general name' ),
+		'singular_name' => _x( 'Convenience', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Search Convenience Levels' ),
+		'all_items' => __( 'All Convenience Levels' ),
+		'parent_item' => __( 'Parent Convenience Level' ),
+		'parent_item_colon' => __( 'Parent Convenience Level:' ),
+		'edit_item' => __( 'Edit Convenience Level' ), 
+		'update_item' => __( 'Update Convenience Level' ),
+		'add_new_item' => __( 'Add New Convenience Level' ),
+		'new_item_name' => __( 'New Convenience Level' ),
+		'menu_name' => __( 'Convenience' ),
+	);
+
+	register_taxonomy('convenience',
+		array(0 => 'recipe'),
+		array( 
+			'hierarchical' => true, 
+			'labels' => $convenience_labels,
+			'show_ui' => true,
+			'show_admin_column' => true,
+			'query_var' => true,
+			'rewrite' => array('slug' => 'recipes/convenience', 'with_front' => false),
 		) 
 	);
 
