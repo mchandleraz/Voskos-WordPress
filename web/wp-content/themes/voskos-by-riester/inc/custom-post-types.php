@@ -8,7 +8,7 @@
 function riester_customPostTypes() { 
 	// creating (registering) the custom type 
 	register_post_type( 'recipe', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
-	 	// let's now add all the options for this post type
+		// let's now add all the options for this post type
 		array('labels' => array(
 				'name' => __('Recipes'), /* This is the Title of the Group */
 				'singular_name' => __('Recipe'), /* This is the individual type */
@@ -38,7 +38,7 @@ function riester_customPostTypes() {
 	); /* end of recipes */
 
 	register_post_type( 'product', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
-	 	// let's now add all the options for this post type
+		// let's now add all the options for this post type
 		array('labels' => array(
 				'name' => __('Products'), /* This is the Title of the Group */
 				'singular_name' => __('Product'), /* This is the individual type */
@@ -76,58 +76,78 @@ function riester_customPostTypes() {
 	
 } 
 
-	// adding the function to the Wordpress init
-	add_action( 'init', 'riester_customPostTypes');
-	
-	/*
-	for more information on taxonomies, go here:
-	http://codex.wordpress.org/Function_Reference/register_taxonomy
-	*/ 
+// adding the function to the Wordpress init
+add_action( 'init', 'riester_customPostTypes');
 
-	// Custom Tags for Recipes
-    register_taxonomy( 'recipe_filter_option',
-    	array('recipe'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
-    	array('hierarchical' => false,    /* if this is false, it acts like tags */                
-    		'labels' => array(
-    			'name' => __( 'Filter Options'), /* name of the custom taxonomy */
-    			'singular_name' => __( 'Filter Option'), /* single taxonomy name */
-    			'search_items' =>  __( 'Filter Options'), /* search title for taxomony */
-    			'all_items' => __( 'Filter Options'), /* all title for taxonomies */
-    			'parent_item' => __( 'Parent Filter Option'), /* parent title for taxonomy */
-    			'parent_item_colon' => __( 'Parent Filter Option:'), /* parent taxonomy title */
-    			'edit_item' => __( 'Edit Filter Option'), /* edit custom taxonomy title */
-    			'update_item' => __( 'Update Filter Option'), /* update title for taxonomy */
-    			'add_new_item' => __( 'Add New Filter Option'), /* add new title for taxonomy */
-    			'new_item_name' => __( 'New Filter Option Name') /* name title for taxonomy */
-    		),
-    		'show_admin_column' => true,
-    		'show_ui' => true,
-    		'query_var' => true,
-    		'rewrite' => array( 'slug' => 'recipes' )
-    	)
-    );
+/*
+for more information on taxonomies, go here:
+http://codex.wordpress.org/Function_Reference/register_taxonomy
+*/ 
 
-	// Custom Tags for Recipes
-    register_taxonomy( 'product_filter_option', 
-    	array('product'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
-    	array('hierarchical' => false,    /* if this is false, it acts like tags */                
-    		'labels' => array(
-    			'name' => __( 'Filter Options'), /* name of the custom taxonomy */
-    			'singular_name' => __( 'Filter Option'), /* single taxonomy name */
-    			'search_items' =>  __( 'Filter Options'), /* search title for taxomony */
-    			'all_items' => __( 'Filter Options'), /* all title for taxonomies */
-    			'parent_item' => __( 'Parent Filter Option'), /* parent title for taxonomy */
-    			'parent_item_colon' => __( 'Parent Filter Option:'), /* parent taxonomy title */
-    			'edit_item' => __( 'Edit Filter Option'), /* edit custom taxonomy title */
-    			'update_item' => __( 'Update Filter Option'), /* update title for taxonomy */
-    			'add_new_item' => __( 'Add New Filter Option'), /* add new title for taxonomy */
-    			'new_item_name' => __( 'New Filter Option Name') /* name title for taxonomy */
-    		),
-    		'show_admin_column' => true,
-    		'show_ui' => true,
-    		'query_var' => true,
-    		'rewrite' => array( 'slug' => 'products' )
-    	)
-    );
+// Custom Tags for Recipes
+register_taxonomy( 'recipe_filter_option',
+	array('recipe'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+	array('hierarchical' => false,    /* if this is false, it acts like tags */                
+		'labels' => array(
+			'name' => __( 'Filter Options'), /* name of the custom taxonomy */
+			'singular_name' => __( 'Filter Option'), /* single taxonomy name */
+			'search_items' =>  __( 'Filter Options'), /* search title for taxomony */
+			'all_items' => __( 'Filter Options'), /* all title for taxonomies */
+			'parent_item' => __( 'Parent Filter Option'), /* parent title for taxonomy */
+			'parent_item_colon' => __( 'Parent Filter Option:'), /* parent taxonomy title */
+			'edit_item' => __( 'Edit Filter Option'), /* edit custom taxonomy title */
+			'update_item' => __( 'Update Filter Option'), /* update title for taxonomy */
+			'add_new_item' => __( 'Add New Filter Option'), /* add new title for taxonomy */
+			'new_item_name' => __( 'New Filter Option Name') /* name title for taxonomy */
+		),
+		'show_admin_column' => true,
+		'show_ui' => true,
+		'query_var' => true,
+		'rewrite' => array( 'slug' => 'recipes' )
+	)
+);
+
+// Custom Tags for Products
+register_taxonomy( 'product_filter_option', 
+	array('product'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+	array('hierarchical' => false,    /* if this is false, it acts like tags */                
+		'labels' => array(
+			'name' => __( 'Filter Options'), /* name of the custom taxonomy */
+			'singular_name' => __( 'Filter Option'), /* single taxonomy name */
+			'search_items' =>  __( 'Filter Options'), /* search title for taxomony */
+			'all_items' => __( 'Filter Options'), /* all title for taxonomies */
+			'parent_item' => __( 'Parent Filter Option'), /* parent title for taxonomy */
+			'parent_item_colon' => __( 'Parent Filter Option:'), /* parent taxonomy title */
+			'edit_item' => __( 'Edit Filter Option'), /* edit custom taxonomy title */
+			'update_item' => __( 'Update Filter Option'), /* update title for taxonomy */
+			'add_new_item' => __( 'Add New Filter Option'), /* add new title for taxonomy */
+			'new_item_name' => __( 'New Filter Option Name') /* name title for taxonomy */
+		),
+		'show_admin_column' => true,
+		'show_ui' => true,
+		'query_var' => true,
+		'rewrite' => array( 'slug' => 'products' )
+	)
+);
+if( !function_exists( 'riester_customTaxonomiesInPostClass' ) ) {
+    /**
+     * Append taxonomy terms to post class.
+     * @since 2010-07-10
+     */
+    function riester_customTaxonomiesInPostClass( $classes, $class, $ID ) {
+        $taxonomy = 'recipe';
+        $terms = get_the_terms( (int) $ID, $taxonomy );
+        if( !empty( $terms ) ) {
+            foreach( (array) $terms as $order => $term ) {
+                if( !in_array( $term->slug, $classes ) ) {
+                    $classes[] = $term->slug;
+                }
+            }
+        }
+        return $classes;
+    }
+}
+
+add_filter( 'post_class', 'riester_customTaxonomiesInPostClass', 10, 3 );
 
 ?>

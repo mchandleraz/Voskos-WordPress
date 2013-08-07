@@ -8,7 +8,7 @@ require( get_stylesheet_directory() . '/inc/custom-header.php' );
 /**
  * Adds support for custom post types.
  */
-require( get_stylesheet_directory() . '/inc/custom-post-types.php' );
+//require( get_stylesheet_directory() . '/inc/custom-post-types.php' );
 
 /**
  * laod_scripts_styles()
@@ -23,9 +23,9 @@ function laod_scripts_styles() {
 	// Load scripts
 	//wp_enqueue_script('plugins', JS . 'plugins.js', array('jquery'), VERSION, true);
 	wp_enqueue_script('script', JS . 'script.js', array('jquery'), '0.1', true);
-	wp_enqueue_script('scrollTo', JS . '/libs/jquery-scrollto.js', array('jquery'), '1.4.4', true);
-	wp_enqueue_script('history.js', JS . '/libs/jquery.history.js', array('jquery','scrollTo'), '1.8b2', true);
-	wp_enqueue_script('Ajaxify', JS . '/libs/ajaxify-html5.js', array('jquery','scrollTo','history.js'), '1.0.1', true);
+	// wp_enqueue_script('scrollTo', JS . '/libs/jquery-scrollto.js', array('jquery'), '1.4.4', true);
+	// wp_enqueue_script('history.js', JS . '/libs/jquery.history.js', array('jquery','scrollTo'), '1.8b2', true);
+	// wp_enqueue_script('Ajaxify', JS . '/libs/ajaxify-html5.js', array('jquery','scrollTo','history.js'), '1.0.1', true);
 }
 
 add_action('wp_enqueue_scripts', 'laod_scripts_styles');
