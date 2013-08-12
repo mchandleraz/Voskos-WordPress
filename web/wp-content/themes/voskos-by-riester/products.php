@@ -4,22 +4,13 @@
  *
  */
 
-
-/**
- * ERROR REPORTING
- *
- * 
- */
-	ini_set('display_errors', 'On');
-	error_reporting(E_ALL | E_STRICT);
-
 $taxonomies = get_object_taxonomies( 'product' );
 
 
 
 if ( function_exists( 'retrieve_objects_with_taxonomies' ) ) :
 
-	wp_enqueue_script('filter', JS . 'recipe-filter.js', array('jquery'), '2.0', false);
+	wp_enqueue_script('filter', JS . 'object-filter.js', array('jquery'), '2.0', false);
 
 // Gets the page template name (products.php), then trims "s.php" from the end,
 // to convert it to the post type.

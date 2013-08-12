@@ -4,22 +4,11 @@
  *
  */
 
-
-/**
- * ERROR REPORTING
- *
- * 
- */
-	ini_set('display_errors', 'On');
-	error_reporting(E_ALL | E_STRICT);
-
-/* ERROR REPORTING END */
-
 $taxonomies = get_object_taxonomies( 'recipe' );
 
 if ( function_exists( 'retrieve_objects_with_taxonomies' ) ) :
 
-	wp_enqueue_script('filter', JS . 'recipe-filter.js', array('jquery'), '2.0', false);
+	wp_enqueue_script('filter', JS . 'object-filter.js', array('jquery'), '2.0', false);
 
 	$taxonomies_with_options = retrieve_taxonomy_with_options($taxonomies);
 
