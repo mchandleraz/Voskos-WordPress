@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Recipe Filter
+ * Template Name: Product Filter
  *
  */
 
@@ -13,13 +13,17 @@
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL | E_STRICT);
 
-/* ERROR REPORTING END */
+$taxonomies = get_object_taxonomies( 'product' );
 
-$taxonomies = get_object_taxonomies( 'recipe' );
+
 
 if ( function_exists( 'retrieve_objects_with_taxonomies' ) ) :
 
 	wp_enqueue_script('filter', JS . 'recipe-filter.js', array('jquery'), '2.0', false);
+
+// Gets the page template name (products.php), then trims "s.php" from the end,
+// to convert it to the post type.
+$taxonomy_for_post_type = preg_replace('/s\.php$/', '', get_page_template_slug($post->ID) );
 
 	$taxonomies_with_options = retrieve_taxonomy_with_options($taxonomies);
 
@@ -36,8 +40,8 @@ get_header(); ?>
 
 			<div class="search-form">
 				<form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-					<input type="text" value="" name="s" id="s" placeholder="Enter Recipe Keyword" />
-					<input type="hidden" name="post_type" value="recipe" />
+					<input type="text" value="" name="s" id="s" placeholder="Enter Product Keyword" />
+					<input type="hidden" name="post_type" value="product" />
 					<input type="submit" id="searchsubmit" value="Search" />
 				</form>
 			</div><!-- .search-form -->
@@ -62,17 +66,17 @@ get_header(); ?>
 				// Queries the custom post type
 				$args = array(
 					'posts_per_page' => -1,
-					'post_type' => 'recipe',
+					'post_type' => 'product',
 					'order' => 'DESC'
 				);
 				
-				$recipes = new WP_Query($args);
+				$products = new WP_Query($args);
 			
-			if ( $recipes->have_posts() ) : ?>
+			if ( $products->have_posts() ) : ?>
 		
-				<div class="object-grid recipes clearfix">
+				<div class="object-grid products clearfix">
 
-					<?php while ( $recipes->have_posts() ) : $recipes->the_post(); ?>
+					<?php while ( $products->have_posts() ) : $products->the_post(); ?>
 
 						<div data-postid="<?php echo $post->ID; ?>" class="item single-recipe-item">
 

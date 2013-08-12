@@ -23,9 +23,6 @@ function laod_scripts_styles() {
 	// Load scripts
 	//wp_enqueue_script('plugins', JS . 'plugins.js', array('jquery'), VERSION, true);
 	wp_enqueue_script('script', JS . 'script.js', array('jquery'), '0.1', true);
-	// wp_enqueue_script('scrollTo', JS . '/libs/jquery-scrollto.js', array('jquery'), '1.4.4', true);
-	// wp_enqueue_script('history.js', JS . '/libs/jquery.history.js', array('jquery','scrollTo'), '1.8b2', true);
-	// wp_enqueue_script('Ajaxify', JS . '/libs/ajaxify-html5.js', array('jquery','scrollTo','history.js'), '1.0.1', true);
 }
 
 add_action('wp_enqueue_scripts', 'laod_scripts_styles');
@@ -37,13 +34,13 @@ add_action('wp_enqueue_scripts', 'laod_scripts_styles');
 function scripts_in_header() {
 		$path = untrailingslashit( FRMWRK_ASSETS );
 		$jquery_head = <<<EOF
-			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-			<script>window.jQuery || document.write('<script src="$path/js/jquery-1.8.3.min.js"><\/script>')</script>
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+			<script>window.jQuery || document.write('<script src="<?php echo FRMWRK_ASSETS ?>js/jquery-1.9.1.min.js"><\/script>')</script>
 EOF;
 	echo $jquery_head;
 }
 
-//add_action( 'wp_enqueue_scripts', 'scripts_in_header' );
+add_action( 'wp_enqueue_scripts', 'scripts_in_header' );
 
 /**
  * facebook_sdk_include()

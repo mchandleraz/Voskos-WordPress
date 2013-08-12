@@ -3,22 +3,35 @@
 Plugin Name: Recipe Filter Helper Functions
 Plugin URI: 
 Description: Recipe filter for Herdez.
-Version: 1.0
+Version: 2.0
 Author: RIESTER
 Author URI: http://riester.com
 */
 
+
+function post_type_from_url() {
+
+	/**
+	 * Gets the custom post type by stripping slashes and removing 
+	 * the 's' from the end. ie: /recipes/ -> recipe
+	 * @return string $pageURL String the contains the post type.
+	 */
+	$pageURL = preg_replace('/\/|s\//', "", $_SERVER["REQUEST_URI"]);
+	return $pageURL;
+
+}
+
 /**
- * retrieve_recipes_with_taxonomies() 
+ * retrieve_objects_with_taxonomies() 
  */
-function retrieve_recipes_with_taxonomies($taxonomies){
+function retrieve_objects_with_taxonomies($taxonomies){
 
 	/**
 	 * Retrieve taxonomy values
 	 * @param int $post_id The post ID
 	 * @return array $rval Array with taxonomies and their values
 	 */
-	function recipe_taxonomies($post_id, $taxonomies){
+	function object_taxonomies($post_id, $taxonomies){
 		$rval = array();
 
 		foreach(wp_get_post_terms($post_id, $taxonomies) as $taxonomy){
@@ -30,26 +43,26 @@ function retrieve_recipes_with_taxonomies($taxonomies){
 		}
 
 		return $rval;
-	} // recipe_taxonomies
+	} // object_taxonomies
 
-	$query = new WP_Query('post_type=recipe&posts_per_page=-1');
+	$query = new WP_Query("posts_per_page=-1&post_type=" . post_type_from_url() );
 	$posts = $query->posts;
 
-	$recipes = array();
+	$objects = array();
 
 	foreach($posts as $post){
-		$recipe = array(
+		$object = array(
 				'id' => $post->ID,
-				'taxonomies' => recipe_taxonomies($post->ID, $taxonomies)
+				'taxonomies' => object_taxonomies($post->ID, $taxonomies)
 		);
 
-		$recipes[] = $recipe;
+		$objects[] = $object;
 	}
 
 	wp_reset_query();
 
-	return $recipes;
-} // retrieve_recipes_with_taxonomies
+	return $objects;
+} // retrieve_objects_with_taxonomies
 
 
 /**
@@ -79,4 +92,3 @@ function retrieve_taxonomy_with_options($taxonomies){
 
 	return $data;
 } // retrieve_taxonomy_with_options
-?>

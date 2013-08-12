@@ -1,4 +1,4 @@
-var recipe_filter = {
+var object_filter = {
 	items : null,
 	filterOptionsContainer : null,
 	resultsContainer : null,
@@ -21,6 +21,7 @@ var recipe_filter = {
 		
 		this.initFilterOptions();
 		this.filter();
+
 	},
 	initFilterOptions : function(){
 		var self = this;
@@ -28,6 +29,9 @@ var recipe_filter = {
 			self.filter();
 		});
 	},
+	/*
+	 * 
+	 */
 	filter : function(){
 		var activeFilters = {};
 		$('.filter-option:checked', this.filterOptionsContainer).each(function(index,value){
@@ -46,6 +50,9 @@ var recipe_filter = {
 		var filteredItems = this.filterItems(activeFilters);
 		this.updateDisplay(filteredItems);
 	},
+	/*
+	 * 
+	 */
 	filterItems : function(activeFilters){
 		var self = this;
 		var results = this.items.slice(0);
@@ -68,6 +75,9 @@ var recipe_filter = {
 		
 		return results;
 	},
+	/*
+	 * 
+	 */
 	resetFilter : function(){
 		$('.filter-option:checked', this.filterOptionsContainer).each(function(index,checkboxDOM){
 			$(checkboxDOM).attr('checked', false);
@@ -75,6 +85,9 @@ var recipe_filter = {
 
 		this.filter();
 	},
+	/*
+	 * 
+	 */
 	itemMeetsFilterCriteria: function(item, taxonomy, options){
 		var rval = true;
 		var itemTaxonomyOptions = item['taxonomies'][taxonomy];
@@ -92,6 +105,9 @@ var recipe_filter = {
 
 		return rval;
 	},
+	/*
+	 * 
+	 */
 	updateDisplay : function(activeItems){
 		this.hideAllItems();
 		this.showItems(activeItems);
@@ -99,6 +115,9 @@ var recipe_filter = {
 		this.updateSelectedFilters();			
 		this.updateFilterOptions(activeItems);	
 	},
+	/*
+	 * 
+	 */
 	updateFilterOptions : function(activeItems){
 		$('.filter-option').attr('disabled','disabled');
 		$('.filter-option').parent().addClass('inactive');
@@ -112,6 +131,9 @@ var recipe_filter = {
 			});
 		});				
 	},
+	/*
+	 * 
+	 */
 	updateSelectedFilters : function(){
 		$('.active-filters', this.activeFiltersContainer).empty();
 
@@ -130,9 +152,12 @@ var recipe_filter = {
 			
 			$('.active-filters').append(dom);
 
-			$('.recipe-filter').addClass('')
+			$('.object-filter').addClass('')
 		});
 	},
+	/*
+	 * 
+	 */
 	updateResultCounter : function(activeCount, totalCount){
 		var string = 'Showing ';
 
@@ -154,9 +179,15 @@ var recipe_filter = {
 		$(this.resultCountContainer).empty();
 		$(this.resultCountContainer).html(string);			
 	},
+	/*
+	 * 
+	 */
 	hideAllItems : function(){
 		$('.item', this.resultsContainer).hide();				
 	},
+	/*
+	 * 
+	 */
 	showItems : function(items){
 		$.each(items, function(index,value){
 			$('.item[data-postid="'+ value.id +'"]', this.resultsContainer).show();

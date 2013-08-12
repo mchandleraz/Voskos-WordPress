@@ -130,6 +130,45 @@ function custom_post_type_init() {
 		)
 	);
 
+	register_post_type('product', 
+		array(	
+			'label' => 'Products',
+			'description' => '',
+			'public' => true,
+			'show_ui' => true,
+			'show_in_menu' => true,
+			'capability_type' => 'page',
+			'hierarchical' => false,
+			'rewrite' => array('slug' => 'products', 'with_front' => false),
+			'query_var' => true,
+			'has_archive' => false,
+			'menu_position' => '',
+			'supports' => array(
+				'title',
+				'editor',
+				'thumbnail',
+				'page-attributes',
+				'excerpt'
+			),
+			'labels' => array(
+				'name' => 'Product',
+				'singular_name' => 'Product',
+				'menu_name' => 'Products',
+				'add_new' => 'Add Product',
+				'add_new_item' => 'Add New Product',
+				'edit' => 'Edit',
+				'edit_item' => 'Edit Product',
+				'new_item' => 'New Product',
+				'view' => 'View Product',
+				'view_item' => 'View Product',
+				'search_items' => 'Search Products',
+				'not_found' => 'No Products Found',
+				'not_found_in_trash' => 'No Products Found in Trash',
+				'parent' => 'Parent Product',
+			),
+		)
+	);
+
 }
 
 add_action( 'init', 'custom_post_type_init' );
@@ -138,57 +177,9 @@ add_action( 'init', 'custom_post_type_init' );
  * custom_taxonomies_init() Add the custom post types
  */
 function custom_taxonomies_init() {
-	// $page_type_labels = array(
-	// 	'name' => _x( 'Page Type', 'taxonomy general name' ),
-	// 	'singular_name' => _x( 'Page Type', 'taxonomy singular name' ),
-	// 	'search_items' =>  __( 'Search Page Types' ),
-	// 	'all_items' => __( 'All Page Types' ),
-	// 	'parent_item' => __( 'Parent Page Type' ),
-	// 	'parent_item_colon' => __( 'Parent Page Type:' ),
-	// 	'edit_item' => __( 'Edit Page Type' ), 
-	// 	'update_item' => __( 'Update Page Type' ),
-	// 	'add_new_item' => __( 'Add New Page Type' ),
-	// 	'new_item_name' => __( 'New Page Type' ),
-	// 	'menu_name' => __( 'Page Types' ),
-	// );
-
-	// register_taxonomy('page-type',
-	// 	array(0 => 'page'),
-	// 	array( 
-	// 		'hierarchical' => true, 
-	// 		'labels' => $page_type_labels,
-	// 		'show_ui' => true,
-	// 		'query_var' => true,
-	// 		'rewrite' => array('slug' => 'page-type'),
-	// 	) 
-	// );
-
-	// $product_type_labels = array(
-	// 	'name' => _x( 'Product Type', 'taxonomy general name' ),
-	// 	'singular_name' => _x( 'Product Type', 'taxonomy singular name' ),
-	// 	'search_items' =>  __( 'Search Types' ),
-	// 	'all_items' => __( 'All Types' ),
-	// 	'parent_item' => __( 'Parent Product Type' ),
-	// 	'parent_item_colon' => __( 'Parent Product Type:' ),
-	// 	'edit_item' => __( 'Edit Product Type' ), 
-	// 	'update_item' => __( 'Update Product Type' ),
-	// 	'add_new_item' => __( 'Add New Product Type' ),
-	// 	'new_item_name' => __( 'New Product Type' ),
-	// 	'menu_name' => __( 'Product Type' ),
-	// );
-
-	// register_taxonomy('product-type',
-	// 	array(0 => 'recipe'),
-	// 	array( 
-	// 		'hierarchical' => true, 
-	// 		'labels' => $product_type_labels,
-	// 		'show_ui' => true,
-	// 		'show_admin_column' => true,
-	// 		'query_var' => true,
-	// 		'rewrite' => array('slug' => 'mexican-recipes/product-type', 'with_front' => false),
-	// 	) 
-	// );
-
+	/**
+	 *	RECIPE TAXONOMIES
+	 */
 	$course_labels = array(
 		'name' => _x( 'Course', 'taxonomy general name' ),
 		'singular_name' => _x( 'Course', 'taxonomy singular name' ),
@@ -290,6 +281,112 @@ function custom_taxonomies_init() {
 			'show_admin_column' => true,
 			'query_var' => true,
 			'rewrite' => array('slug' => 'recipes/convenience', 'with_front' => false),
+		) 
+	);
+	/*
+	 *	PRODUCT TAXONOMIES
+	 */
+	$flavor_labels = array(
+		'name' => _x( 'Flavors', 'taxonomy general name' ),
+		'singular_name' => _x( 'Flavor', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Search Flavors' ),
+		'all_items' => __( 'All Flavors' ),
+		'parent_item' => __( 'Parent Flavor' ),
+		'parent_item_colon' => __( 'Parent Flavor:' ),
+		'edit_item' => __( 'Edit Flavor' ), 
+		'update_item' => __( 'Update Flavor' ),
+		'add_new_item' => __( 'Add New Flavor' ),
+		'new_item_name' => __( 'New Flavor' ),
+		'menu_name' => __( 'Flavor' ),
+	);
+
+	register_taxonomy('flavor',
+		array(0 => 'product'),
+		array( 
+			'hierarchical' => true, 
+			'labels' => $flavor_labels,
+			'show_ui' => true,
+			'show_admin_column' => true,
+			'query_var' => true,
+			'rewrite' => array('slug' => 'products/flavor', 'with_front' => false),
+		) 
+	);
+
+	$nutrition_labels = array(
+		'name' => _x( 'Nutritional Qualities', 'taxonomy general name' ),
+		'singular_name' => _x( 'Nutritional Quality', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Search Nutritional Qualities' ),
+		'all_items' => __( 'All Nutritional Qualities' ),
+		'parent_item' => __( 'Parent Nutritional Quality' ),
+		'parent_item_colon' => __( 'Parent Nutritional Quality:' ),
+		'edit_item' => __( 'Edit Nutritional Quality' ), 
+		'update_item' => __( 'Update Nutritional Qualities' ),
+		'add_new_item' => __( 'Add New Nutritional Quality' ),
+		'new_item_name' => __( 'New Nutritional Quality' ),
+		'menu_name' => __( 'Nutrition' ),
+	);
+
+	register_taxonomy('nutrition',
+		array(0 => 'product'),
+		array( 
+			'hierarchical' => true, 
+			'labels' => $nutrition_labels,
+			'show_ui' => true,
+			'show_admin_column' => true,
+			'query_var' => true,
+			'rewrite' => array('slug' => 'products/nutrition', 'with_front' => false),
+		) 
+	);
+
+	$size_labels = array(
+		'name' => _x( 'Sizes', 'taxonomy general name' ),
+		'singular_name' => _x( 'Size', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Search Sizes' ),
+		'all_items' => __( 'All Sizes' ),
+		'parent_item' => __( 'Parent Size' ),
+		'parent_item_colon' => __( 'Parent Size:' ),
+		'edit_item' => __( 'Edit Size' ), 
+		'update_item' => __( 'Update Size' ),
+		'add_new_item' => __( 'Add New Size' ),
+		'new_item_name' => __( 'New Size' ),
+		'menu_name' => __( 'Size' ),
+	);
+
+	register_taxonomy('size',
+		array(0 => 'product'),
+		array( 
+			'hierarchical' => true, 
+			'labels' => $size_labels,
+			'show_ui' => true,
+			'show_admin_column' => true,
+			'query_var' => true,
+			'rewrite' => array('slug' => 'products/size', 'with_front' => false),
+		) 
+	);
+
+	$favorites_labels = array(
+		'name' => _x( 'Voskos Favorites', 'taxonomy general name' ),
+		'singular_name' => _x( 'Voskos Favorite', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Search Voskos Favorites' ),
+		'all_items' => __( 'All Voskos Favorites' ),
+		'parent_item' => __( 'Parent Voskos Favorite' ),
+		'parent_item_colon' => __( 'Parent Voskos Favorite:' ),
+		'edit_item' => __( 'Edit Voskos Favorite' ), 
+		'update_item' => __( 'Update Voskos Favorite' ),
+		'add_new_item' => __( 'Add New Voskos Favorite' ),
+		'new_item_name' => __( 'New Voskos Favorite' ),
+		'menu_name' => __( 'Voskos Favorites' ),
+	);
+
+	register_taxonomy('favorites',
+		array(0 => 'product'),
+		array( 
+			'hierarchical' => true, 
+			'labels' => $favorites_labels,
+			'show_ui' => true,
+			'show_admin_column' => true,
+			'query_var' => true,
+			'rewrite' => array('slug' => 'products/voskos-favorites', 'with_front' => false),
 		) 
 	);
 
